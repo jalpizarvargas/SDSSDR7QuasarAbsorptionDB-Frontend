@@ -1,0 +1,35 @@
+export interface LyaFlag{
+    id:number;
+    lyFlag_1025:number;
+    lyFlag_1215:number;
+    lyFlag_1238:number;
+    lyFlag_1260:number;
+    lyFlag_1302:number;
+    lyFlag_1304:number;
+    lyFlag_1334:number;
+    lyFlag_1393:number;
+    lyFlag_1402:number;
+    lyFlag_1526:number;
+    lyFlag_1548:number;
+    lyFlag_1550:number;
+    lyFlag_1608:number;
+    lyFlag_1656:number;
+    lyFlag_1670:number;
+    lyFlag_1854:number;
+    lyFlag_1862:number;
+    lyFlag_2026:number;
+    lyFlag_2056:number;
+    lyFlag_2260:number;
+    lyFlag_2374:number;
+    lyFlag_2382:number;
+    lyFlag_2586:number;
+    lyFlag_2594:number;
+    lyFlag_2600:number;
+    lyFlag_2796:number;
+    lyFlag_2803:number;
+    lyFlag_2853:number;
+    lyFlag_3242:number;
+    lyFlag_3934:number;
+    lyFlag_3969:number;
+    lyFlag_5891:number;
+}

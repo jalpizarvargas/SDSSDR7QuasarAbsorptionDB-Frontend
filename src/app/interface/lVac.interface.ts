@@ -1,0 +1,34 @@
+export interface LambdaVac {
+    lVac_1025:number;
+    lVac_1215:number;
+    lVac_1238:number;
+    lVac_1260:number;
+    lVac_1302:number;
+    lVac_1304:number;
+    lVac_1334:number;
+    lVac_1393:number;
+    lVac_1402:number;
+    lVac_1526:number;
+    lVac_1548:number;
+    lVac_1550:number;
+    lVac_1608:number;
+    lVac_1656:number;
+    lVac_1670:number;
+    lVac_1854:number;
+    lVac_1862:number;
+    lVac_2026:number;
+    lVac_2056:number;
+    lVac_2260:number;
+    lVac_2374:number;
+    lVac_2382:number;
+    lVac_2586:number;
+    lVac_2594:number;
+    lVac_2600:number;
+    lVac_2796:number;
+    lVac_2803:number;
+    lVac_2853:number;
+    lVac_3242:number;
+    lVac_3934:number;
+    lVac_3969:number;
+    lVac_5891:number;
+}

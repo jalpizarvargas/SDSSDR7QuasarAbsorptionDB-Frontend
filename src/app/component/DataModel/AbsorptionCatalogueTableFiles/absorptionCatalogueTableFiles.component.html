@@ -1,0 +1,289 @@
+<h1>Data Model for the Catalogue Table Files</h1>
+<p>Files with namse like "cat_plate_fiber_mjd.dat" are catalogue files.</p>
+<h3>(Columns in these files are read from left to right)</h3>
+
+<br>
+
+<h2>Rows that Start with Field Number = 1</h2>
+<p>Summary: QSO-level information.</p>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Field Number</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>SDSS Plate</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>SDSS Fiber</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>SDSS MJD</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Quasar Redshift from Schneider et al. 2010</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Quasar Redshift from Hewett & Wild 2010</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>SDSS i band PSF magnitude</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>Rows that Start with Field Number = 2</h2>
+<p>Summary: QSO coordinates and dates of the last absorption extraction run.</p>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Field Number</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>SDSS ID prefix</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>RA [sexigesimal]</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Dec [sexigesimal]</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>RA [degrees]</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Dec [degrees]</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Pipeline run date</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Pipeline run time</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>Rows that Start with Field Number = 3</h2>
+<p>Summary: system-level information for each group of absorption lines matched to the same redshift.</p>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Field Number</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Redshift of absorption line system; A value of ‘-2’ in this column indicates the end of listed detections for the file.</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Minimum rest frame wavelength observable for this system (Angstroms)</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Maximum rest frame wavelength observable for this system (Angstroms)</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Confidence grade, indicating the number of strong, unblended lines from commonly observed ions, detected at the same redshift 
+            (‘A’=4+; B= 3; ‘C’= 2; ‘C*’= 2, but missing one line in a CIV or MgII doublet; ‘D’ = 1. See publication for full description.)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Type of system detection (Some combination of: ‘M’=MgII, ‘C’=CIV, and ‘F’=FeII)</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Absorption system velocity in the quasar rest frame, as a fraction of the speed of light (v/c)</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>Rows that Start with Field Number = 4</h2>
+<p>Summary:  the median, observed frame, two-pixel 1-sigma equivalent width error in each of the wavelength regions listed below in the quasar rest-frame. 
+    Entries of -1.0 indicate that the wavelength region is not within the bounds of the spectrum.</p>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Field Number</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 1215.7-1240.8 Angstroms</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 1240.8-1399.8 Angstroms</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 1399.8-1549.5 Angstroms</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 1549.5-1908.7 Angstroms</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 1908.7-2799.1 Angstroms</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 2799.1-3969.0 Angstroms</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Median 2-pixel flux uncertainty in the quasar rest frame wavelength range: 3969.0-8200.0 Angstroms</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>Rows that Start with Field Number = 5</h2>
+<p>Summary: information for each individual absorption line matched to the same systemic redshift.</p>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Field Number</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Observed wavelength (Angstroms)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Equivalent width (Angstroms), observer frame</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Equivalent width uncertainty (Angstroms), observer frame</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Vacuum rest-frame wavelength (Angstroms)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Element name</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Ion number</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Lyman-alpha flag (1 = detected within the LyA forest; 0 = detected outside the LyA forest)</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Redshift offset of the line from the system average redshift (given in Field 3)</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Velocity offset of the line with respect to the system average redshift (given in Field 3)</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Signal to noise of the line (equivalent width / uncertainty)</td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>Full width at half maximum (pixels)</td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>Grade flag (‘*’ = line was used to determine the confidence grade, presented in field 3; ‘0’ = line was not used)</td>
+    </tr>
+    <tr>
+        <td>14 (if multiple line IDs are possible)</td>
+        <td>Alternate absorption system redshift</td>
+    </tr>
+    <tr>
+        <td>15 (if multiple line IDs are possible)</td>
+        <td>Alternate element name</td>
+    </tr>
+    <tr>
+        <td>16 (if multiple line IDs are possible)</td>
+        <td>Alternate ion number</td>
+    </tr>
+    <tr>
+        <td>17 (if multiple line IDs are possible)</td>
+        <td>Alternate vacuum rest-frame wavelength (Angstroms)</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>Rows that Start with Field Number = 8</h2>
+<p>Summary: information for strong (SNR>5) detected lines that could not be confidently identified.</p>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Field Number</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Observed wavelength (Angstroms)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Equivalent width (Angstroms), observer frame</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Equivalent width uncertainty (Angstroms), observer frame</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Signal to noise of the line (equivalent width / uncertainty)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Full width at half maximum (pixels)</td>
+    </tr>
+</table>

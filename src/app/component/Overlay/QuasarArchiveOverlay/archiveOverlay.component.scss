@@ -1,0 +1,87 @@
+h1{
+    padding-top: 20px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.archiveOverlay{
+    border-radius: 15px;
+    position: static;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.images{
+    position: relative;
+    display: block;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.graphClassification{
+    text-align: center;
+    font-size: 30px;
+}
+
+.buttons{
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: block;
+
+    .pageCount{
+        display: inline-block;
+        position: relative;
+    }
+    
+    button{
+        background-color: black;
+        color: white;
+        border-color: white;
+        margin-bottom: 50px;
+        cursor: pointer;
+    }
+    
+    .navButtonPrev{
+        margin-right: 1%;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    .navButtonNext{
+        margin-left: 1%;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 5px;
+        position: relative;
+    }
+    
+    .donwloadArchiveButton{
+        margin-left: 3%;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        display: inline-block;
+        position: relative;
+    }
+    
+    .legendButton{
+        margin-left: 3%;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    
+    .disabled{
+        background-color: darkgrey;
+        border-color: black;
+        cursor: not-allowed;
+    }
+}

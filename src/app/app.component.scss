@@ -1,0 +1,31 @@
+navbar{
+  position:fixed;  
+  z-index:1;
+  text-align:center;
+  vertical-align:middle;
+  top:0px;
+}
+
+@media print{
+  navbar{
+    display: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  br{
+    display: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .router-outlet{
+    top: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    overflow: visible;
+  }
+}

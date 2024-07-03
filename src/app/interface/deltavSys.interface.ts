@@ -1,0 +1,35 @@
+export interface DeltavSys {
+    id:number;
+    deltavSys_1025:number;
+    deltavSys_1215:number;
+    deltavSys_1238:number;
+    deltavSys_1260:number;
+    deltavSys_1302:number;
+    deltavSys_1304:number;
+    deltavSys_1334:number;
+    deltavSys_1393:number;
+    deltavSys_1402:number;
+    deltavSys_1526:number;
+    deltavSys_1548:number;
+    deltavSys_1550:number;
+    deltavSys_1608:number;
+    deltavSys_1656:number;
+    deltavSys_1670:number;
+    deltavSys_1854:number;
+    deltavSys_1862:number;
+    deltavSys_2026:number;
+    deltavSys_2056:number;
+    deltavSys_2260:number;
+    deltavSys_2374:number;
+    deltavSys_2382:number;
+    deltavSys_2586:number;
+    deltavSys_2594:number;
+    deltavSys_2600:number;
+    deltavSys_2796:number;
+    deltavSys_2803:number;
+    deltavSys_2853:number;
+    deltavSys_3242:number;
+    deltavSys_3934:number;
+    deltavSys_3969:number;
+    deltavSys_5891:number;
+}

@@ -1,0 +1,12 @@
+<ul>
+    <li class="homeOption" (click)="toggleSelected('home')">
+        <a [ngClass]="{'selected':navBarButtonsMapping.get('home') || navBarButtonsMapping.get('')}" routerLink="/home">Home</a>
+    </li>
+    <li (click)="toggleSelected('quasartable')">
+        <a [ngClass]="{'selected':navBarButtonsMapping.get('quasartable')}"  routerLink="/quasartable">Quasar Table</a>
+    </li>
+    <li (click)="toggleSelected('datamodel')">
+        <a [ngClass]="{'selected':navBarButtonsMapping.get('datamodel')}" routerLink="/datamodel">Data Models</a>
+    </li>
+    
+</ul>

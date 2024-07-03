@@ -1,0 +1,35 @@
+export interface EwErrObs {
+    id:number;    
+    eErrObs_1025:number;
+    eErrObs_1215:number;
+    eErrObs_1238:number;
+    eErrObs_1260:number;
+    eErrObs_1302:number;
+    eErrObs_1304:number;
+    eErrObs_1334:number;
+    eErrObs_1393:number;
+    eErrObs_1402:number;
+    eErrObs_1526:number;
+    eErrObs_1548:number;
+    eErrObs_1550:number;
+    eErrObs_1608:number;
+    eErrObs_1656:number;
+    eErrObs_1670:number;
+    eErrObs_1854:number;
+    eErrObs_1862:number;
+    eErrObs_2026:number;
+    eErrObs_2056:number;
+    eErrObs_2260:number;
+    eErrObs_2374:number;
+    eErrObs_2382:number;
+    eErrObs_2586:number;
+    eErrObs_2594:number;
+    eErrObs_2600:number;
+    eErrObs_2796:number;
+    eErrObs_2803:number;
+    eErrObs_2853:number;
+    eErrObs_3242:number;
+    eErrObs_3934:number;
+    eErrObs_3969:number;
+    eErrObs_5891:number;
+}

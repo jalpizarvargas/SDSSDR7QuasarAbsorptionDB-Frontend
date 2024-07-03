@@ -1,0 +1,28 @@
+<div class="archiveOverlay">
+    <h1>Absorption Spectrum</h1>
+    <p class="graphClassification">&lpar; {{normalizedGraph[imageToDisplay]}} &rpar;</p>
+
+    <div *ngIf="imagesLoaded">
+        <!--Where the images are displayed-->
+        <img class="images" src="{{fileData[imageToDisplay]}}"/>
+        
+        <div class="buttons">
+        <!--Button for downloading the archive directory-->
+            <button class="navButtonPrev" *ngIf="imagesLoaded" [ngClass]="{disabled:prevDisable}" [disabled]="prevDisable" (click)="prevImage()">Prev</button>
+
+            <p class="pageCount">{{imageToDisplay + 1}} / {{fileData.length}}</p>
+
+            <button class="navButtonNext" *ngIf="imagesLoaded" [ngClass]="{disabled:nextDisable}" [disabled]="nextDisable" (click)="nextImage()">Next</button>
+            
+            <button class="donwloadArchiveButton" *ngIf="imagesLoaded" (click)="downloadArchive()">Download Results</button>
+
+            <button class="legendButton" (click)="openURL()">Legend</button>
+        </div>
+        
+    </div>
+
+    <div *ngIf="failedToLoad">
+        <h2>Error! Unable to Retrieve Archive at this time, Please try again later</h2>
+    </div>
+
+</div>

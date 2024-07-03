@@ -1,0 +1,35 @@
+export interface LambdaObs {
+    id:number;
+    lObs_1025:number;
+    lObs_1215:number;
+    lObs_1238:number;
+    lObs_1260:number;
+    lObs_1302:number;
+    lObs_1304:number;
+    lObs_1334:number;
+    lObs_1393:number;
+    lObs_1402:number;
+    lObs_1526:number;
+    lObs_1548:number;
+    lObs_1550:number;
+    lObs_1608:number;
+    lObs_1656:number;
+    lObs_1670:number;
+    lObs_1854:number;
+    lObs_1862:number;
+    lObs_2026:number;
+    lObs_2056:number;
+    lObs_2260:number;
+    lObs_2374:number;
+    lObs_2382:number;
+    lObs_2586:number;
+    lObs_2594:number;
+    lObs_2600:number;
+    lObs_2796:number;
+    lObs_2803:number;
+    lObs_2853:number;
+    lObs_3242:number;
+    lObs_3934:number;
+    lObs_3969:number;
+    lObs_5891:number;
+}

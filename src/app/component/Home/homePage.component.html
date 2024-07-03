@@ -1,0 +1,128 @@
+<h1>SDSS DR7 Quasar Absorption Database</h1>
+
+
+<div id="GraphSection">
+        <img src="./assets/images/SDSS-Graph.png">
+</div>
+
+<div id="CatalogSection">
+        <h2>Quasar Absorption Line Catalog</h2>
+
+        <div id="ButtonSection">
+                <button (click)="onClickDownloadCatalog()"><h5>Download the catalog (.fits file)</h5> 
+                <p>550 MB</p></button>
+        </div>     
+</div>
+
+<hr>
+
+<div id="SummarySection">
+
+        <div id="SummaryText">
+                <h2>Summary</h2>
+
+                <blockquote>
+                        As described in York et al. 2024, an automated pipeline was developed to extract a multi-ion catalog of narrow quasar (QSO) 
+                        absorption lines from the Sloan Digital Sky Survey (SDSS) DR7 quasar spectra. The resulting catalog of absorption data supports 
+                        a wealth of astrophysical applications, including studies of intergalactic and circum-galactic abundances, large scale clustering, 
+                        and galaxy evolution. <br> <br>
+
+                        All individual absorption lines detected outside of the Lyman alpha forest have been either grouped into absorption systems 
+                        with a specific redshift or reported as unidentified. The most essential information about these absorption 
+                        systems has been compiled in a system summary catalog, which can be downloaded as a single FITS table using the link above. 
+                        This catalog includes both intervening (z_absorber < z_QSO) and associated (z_absorber ∼ z_QSO) absorption systems, 
+                        constructed through the initial detection of multiple transitions of Mg II, C IV, and/or Fe II. <br> <br>
+
+                        A full description of the motivation and the data products of the SDSS DR7 QSO absorption line catalog is provided in the 
+                        associated manuscript (York et al. 2024), along with statistical analyses of key parameters often used to characterize QSOALS as 
+                        a sample, e.g., completeness limits, the number of detections of various ions, and the number of absorbers per unit redshift. <br> <br>
+
+                        In addition to the downloadable catalog file, this website provides an interactive database to enable simple searches and 
+                        inspections of individual spectra and the production of specialized catalogs of different classes of lines. The DR7 catalog 
+                        currently available in this database contains 84,000 high quality systems (21,300 of which have 3 identified lines 
+                        at the same redshift, to within 250 km/s or dz < 0.0006 at z = 2) and a larger number that are consistent, 
+                        but based on only two lines (mainly, C IV doublets near rest frame λ=1550 A). Unverified, 
+                        low confidence identifications are also cataloged for future followup. <br> <br>
+
+                        Note: The SDSS-III/IV BOSS/eBOSS survey has produced an even larger sample of QSOs, and a catalog of absorbers in that sample, 
+                        in a similar format to the current catalog, is being prepared. The ultimate DR16 data set will include ~150,000 systems in total, 
+                        with redshifts ranging from z = 0.03 to z = 5, identified objectively and without prejudice for abundances, redshift range, 
+                        or ionization type. <br> <br>
+
+                        Questions about this dataset can be sent to Britt Lundgren (blundgre@unca.edu).
+                </blockquote>
+        </div>
+
+        <img id="AbsorptionLineAtlas" src="./assets/images/SDSS-AbsorptionLineAtlas.png">
+
+</div>
+
+<div id="AcknowlegmentSection">
+        <h2 id="Acknowlegment">Acknowlegments</h2>
+
+        <div id="A1">
+                <h5> For any publication making use of the QSOALS catalog on this website,
+                please cite:</h5>
+                <ul>
+                <li> York, Lundgren, Kulkarni, AlSayyad et al. (2024) (submitted)
+                <li> <a href="http://adsabs.harvard.edu/abs/2010AJ....139.2360S">
+                        Schnieder et al. (2010) </a>
+                <li> <a href="http://adsabs.harvard.edu/abs/2000AJ....120.1579Y">
+                        York et al. (2000) </a>
+                <li> <a href="http://adsabs.harvard.edu/abs/2005AJ....129.1755A">
+                        DR7 Data Release (Abazajian et al. 2005) </a>
+                <li> <a href="http://adsabs.harvard.edu/abs/2013AJ....146...32S">
+                        Smee et al. (2013)</a>
+                </ul>
+        </div>
+
+        <!-- http://www.sdss2.org/collaboration/credits.html -->
+
+        <div id="A2">
+                <h5> Please include the following ackowledgment:</h5>
+
+                <blockquote class="small">
+                Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, 
+                the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, 
+                the National Aeronautics and Space Administration, the Japanese Monbukagakusho, 
+                the Max Planck Society, and the Higher Education Funding Council for England.
+                        The SDSS Web Site is <a href="http://www.sdss.org/">http://www.sdss.org/</a>.
+                <p>
+                The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. 
+                The Participating Institutions are the American Museum of Natural History, 
+                Astrophysical Institute Potsdam, University of Basel, University of Cambridge, 
+                Case Western Reserve University, University of Chicago, Drexel University, 
+                Fermilab, the Institute for Advanced Study, the Japan Participation Group, 
+                Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, 
+                the Kavli Institute for Particle Astrophysics and Cosmology, 
+                the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), 
+                Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), 
+                the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University,
+                        Ohio State University, University of Pittsburgh, University of Portsmouth, 
+                        Princeton University, the United States Naval Observatory, and the University of Washington.
+                </blockquote> 
+        </div>
+</div>
+
+<div id="References">
+        <h2> References </h2>
+        In the creation of this QSOALs catalog, we made use of the following work:
+        <ul>
+        <li> <a href="http://classic.sdss.org/dr7/products/value_added/qsocat_dr7.html">
+                DR7 Quasar Catalog  (Scheider et al. 2010) </a>
+        <li> <a href="http://adsabs.harvard.edu/abs/2009ApJ...692..758G">
+                Gibson et al. (2009)</a> BAL Catalog
+        <li> <a href="http://adsabs.harvard.edu/abs/2013MNRAS.436.3200S">
+                Straka et al. (2013)</a> 
+        <li> <a href="http://adsabs.harvard.edu/abs/2010MNRAS.405.2302H">
+                Hewett & Wild (2010) </a> improved redshifts.
+        <li> <a href="http://adsabs.harvard.edu/abs/2003ApJS..149..205M">
+                Morton (2003) </a> reference line list
+        <li> <a href="http://adsabs.harvard.edu/abs/1988ApJS...68..449M">
+                Morton, York and Jenkins (1988)</a> reference line list
+        <li> <a href="http://adsabs.harvard.edu/abs/2001AJ....122..549V">
+                Vanden Berk et al. (2001) </a>
+        <li> <a href="http://adsabs.harvard.edu/abs/2005AJ....129.2047V">
+                Vanden Berk et al. (2005)</a>
+        </ul>
+</div>

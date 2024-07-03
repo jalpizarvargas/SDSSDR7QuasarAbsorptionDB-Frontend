@@ -1,0 +1,525 @@
+<!--Quasar Table Filters Form-->
+<form [formGroup]="tableFormatForm" (ngSubmit)="onSubmit()">
+    
+    <h3>Table Filters</h3>
+    <div class="filter-input-section">
+        <!--Plate Number Input and Error Messaging-->
+        <div class="form-group">
+            <label for="plateNum">
+                <div class="tooltip">Plate Number:
+                    <span class="tooltiptextfilters">SDSS Spectroscopic Plate Number</span>
+                </div>
+            </label> 
+            <input id="plateNum" type="text" [ngClass]="{invalid:inputAlert('plateNum')}" formControlName="plateNum" 
+            (input)="inputAlert('plateNum')" class="formTextInput">
+        </div>
+        <div class="error-alert">
+            <small *ngIf="this.tableFormatForm.get('plateNum').errors != null" class="inputAlert">
+                Invalid Plate Number
+            </small>
+        </div>
+
+        <!--Fiber Number Input and Error Messaging-->
+        <div class="form-group">
+            <label for="fiberNum">
+                <div class="tooltip">Fiber Number:
+                    <span class="tooltiptextfilters">SDSS Spectroscopic Fiber Number</span>
+                </div>
+            </label> 
+            <input id="fiberNum" type="text" [ngClass]="{invalid:inputAlert('fiberNum')}" formControlName="fiberNum" 
+            (input)="inputAlert('fiberNum')" class="formTextInput">
+        </div>
+        <div class="error-alert">
+            <small *ngIf="this.tableFormatForm.get('fiberNum').errors != null" class="inputAlert">
+                Invalid Fiver Number
+            </small>
+        </div>
+
+        <!--Class Score Input and Error Messaging-->
+        <div class="form-group">
+            <label for="classScore">
+                <div class="tooltip">CIV Class Score &ge;
+                    <span class="tooltiptextfilters">Classification score for C IV detected systems 
+                        <br> Recommended value for high-confidence detections: 0.5</span>
+                </div>
+            </label> 
+            <input id="classScore" type="text" [ngClass]="{invalid:inputAlert('classScore')}" 
+            formControlName="classScore" (input)="inputAlert('classScore')" placeholder="-1" class="formTextInput">
+        </div>
+        <div class="error-alert-score">
+            <small *ngIf="this.tableFormatForm.get('classScore').errors != null" class="inputAlert">
+            CIV Class Score must be between -1 and 1
+            </small>
+        </div>
+
+        <!--MGII Score Input and Error Messaging-->
+        <div class="form-group">
+            <label for="mg2Score">
+                <div class="tooltip">MgII Class Score &ge;
+                    <span class="tooltiptextfilters">Classification score for Mg II detected systems 
+                        <br> Recommended value for high-confidence detections: 0.5</span>
+                </div>
+            </label> 
+            <input id="mg2Score" type="text" [ngClass]="{invalid:inputAlert('mg2Score')}" 
+            formControlName="mg2Score" (input)="inputAlert('mg2Score')" placeholder="-1" class="formTextInput">
+        </div>
+        <div class="error-alert-score">
+            <small *ngIf="this.tableFormatForm.get('mg2Score').errors != null" class="inputAlert">
+            MgII Class Score must be between -1 and 1
+            </small>
+        </div>
+
+        <!--Other Class Score Input and Error Messaging-->
+        <div class="form-group">
+            <label for="otherScore">
+                <div class="tooltip">Other Class Score &ge;
+                    <span class="tooltiptextfilters">Classification score for Fe II-detected systems 
+                        <br> Recommended value for high-confidence detections: 0.5</span>
+            </div>
+            </label> 
+            <input id="otherScore" type="text" [ngClass]="{invalid:inputAlert('otherScore')}" 
+            formControlName="otherScore" (input)="inputAlert('otherScore')" placeholder="-1" class="formTextInput">
+        </div>
+        <div class="error-alert-score">
+            <small *ngIf="this.tableFormatForm.get('otherScore').errors != null" class="inputAlert">
+            Other Class Score must be between -1 and 1
+            </small>
+        </div>
+
+        <!--Quasar Redshift Input Range and Error Messaging-->
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    <div class="tooltip">Quasar Redshift
+                        <span class="tooltiptextrangefilters">QSO redshift (Hewett & Wild 2010)</span>
+                    </div>
+                </legend>
+                <!--Minimum Quasar Redshift Value-->
+                <label for="qRedshiftStart">Min</label>
+                <input id="qRedshiftStart" type="text" formControlName="qRedshiftStart" [ngClass]="{invalid:inputAlert('qRedshiftStart','qRedshiftEnd','min')}"
+                (input)="inputAlert('qRedshiftStart','qRedshiftEnd','min')" placeholder="-1" class="formLessThanInput">
+                
+                <!--Maximum Quasar Redshift Value-->
+                <label for="qRedshiftEnd">Max</label>
+                <input id="qRedshiftEnd" type="text" formControlName="qRedshiftEnd" [ngClass]="{invalid:inputAlert('qRedshiftStart','qRedshiftEnd','max')}"
+                (input)="inputAlert('qRedshiftStart','qRedshiftEnd','max')" placeholder="10" class="formGreaterThanInput">
+
+                <!--Error Messages for Quasar Redshift Values-->
+                <div  class="error-alert-range">
+                    <small *ngIf="rangeValidationError.get('qRedshiftStart') || rangeValidationError.get('qRedshiftEnd')" class="inputAlert">
+                        Min Value Greater than Max Value 
+                    </small>
+
+                    <small *ngIf="this.tableFormatForm.get('qRedshiftStart').errors != null || this.tableFormatForm.get('qRedshiftEnd').errors != null" 
+                    class="inputAlert">
+                        Invalid Min or Max Value 
+                    </small>
+                </div>
+            </fieldset>
+        </div>
+
+        <!--Checkbox for results of Spectra with no Detections-->
+        <div class="form-group">
+            <label for="noDetectionSpectra">Spectra with no detections</label>
+            <input id="noDetectionSpectra" type="checkbox" (click)="noSpectraCheck()" formControlName="noDetectionSpectra" class="formCheckBox">
+        </div>
+
+        <!--Absorber Redshift Input Range and Error Messaging-->
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    <div class="tooltip">Absorber Redshift
+                        <span class="tooltiptextrangefilters">Absorption system redshift</span>
+                    </div>
+                </legend>
+                <!--Minimum Absorber Redshift Value-->
+                <label for="aRedshiftStart">Min</label>
+                <input id="aRedshiftStart" type="text" formControlName="aRedshiftStart" [ngClass]="{invalid:inputAlert('aRedshiftStart','aRedshiftEnd','min')}"
+                (input)="inputAlert('aRedshiftStart','aRedshiftEnd','min')" placeholder="-1" class="formLessThanInput">
+                
+                <!--Maximum Absorber Redshift Value-->
+                <label for="aRedshiftEnd">Max</label>
+                <input id="aRedshiftEnd" type="text" formControlName="aRedshiftEnd" [ngClass]="{invalid:inputAlert('aRedshiftStart','aRedshiftEnd','max')}"
+                (input)="inputAlert('aRedshiftStart','aRedshiftEnd','max')" placeholder="10" class="formGreaterThanInput">
+
+                <!--Error Messages for Absorber Redshift Values-->
+                <div  class="error-alert-range">
+                    <small *ngIf="rangeValidationError.get('aRedshiftStart') || rangeValidationError.get('aRedshiftEnd')" class="inputAlert">
+                        Min Value Greater than Max Value <br>
+                    </small>
+
+                    <small *ngIf="this.tableFormatForm.get('aRedshiftStart').errors != null || this.tableFormatForm.get('aRedshiftEnd').errors != null" 
+                    class="inputAlert">
+                        Invalid Min or Max Value <br>
+                    </small>
+                </div>
+            </fieldset>
+        </div>
+
+
+        <!--Ra Degree Input Range and Error Messaging-->
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    <div class="tooltip">Ra Degree
+                        <span class="tooltiptextrangefilters">RA (Degrees)</span>
+                    </div>
+                </legend>
+                <!--Minimum Ra Degree Value-->
+                <label for="raDegStart">Min</label>
+                <input id="raDegStart" type="text" formControlName="raDegStart" [ngClass]="{invalid:inputAlert('raDegStart','raDegEnd','min')}"
+                (input)="inputAlert('raDegStart','raDegEnd','min')" placeholder="0" class="formLessThanInput">
+                
+                <!--Maximum Ra Degree Value-->
+                <label for="raDegEnd">Max</label>
+                <input id="raDegEnd" type="text" formControlName="raDegEnd" [ngClass]="{invalid:inputAlert('raDegStart','raDegEnd','max')}"
+                (input)="inputAlert('raDegStart','raDegEnd','max')" placeholder="360" class="formGreaterThanInput">
+
+                <!--Error Messages for Ra Degree Values-->
+                <div  class="error-alert-range">
+                    <small *ngIf="rangeValidationError.get('raDegStart') || rangeValidationError.get('raDegEnd')" class="inputAlert">
+                        Min Value Greater than Max Value <br>
+                    </small>
+
+                    <small *ngIf="this.tableFormatForm.get('raDegStart').errors != null || this.tableFormatForm.get('raDegEnd').errors != null" 
+                    class="inputAlert">
+                        Invalid Min or Max Value <br>
+                    </small>
+                </div>
+            </fieldset>
+        </div>
+
+        <!--Dec Degree Input Range and Error Messaging-->
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    <div class="tooltip">Dec Degree
+                        <span class="tooltiptextrangefilters">Dec (Degrees)</span>
+                    </div>
+                </legend>
+                <!--Minimum Dec Degree Value-->
+                <label for="decDegStart">Min</label>
+                <input id="decDegStart" type="text" formControlName="decDegStart" [ngClass]="{invalid:inputAlert('decDegStart','decDegEnd','min')}"
+                (input)="inputAlert('decDegStart','decDegEnd','min')" placeholder="-90" class="formLessThanInput">
+                
+                <!--Maximum Dec Redshift Value-->
+                <label for="decDegEnd">Max</label>
+                <input id="decDegEnd" type="text" formControlName="decDegEnd" [ngClass]="{invalid:inputAlert('decDegStart','decDegEnd','max')}"
+                (input)="inputAlert('decDegStart','decDegEnd','max')" placeholder="90" class="formGreaterThanInput">
+
+                <!--Error Messages for Dec Degree Values-->
+                <div  class="error-alert-range">
+                    <small *ngIf="rangeValidationError.get('decDegStart') || rangeValidationError.get('decDegEnd')" class="inputAlert">
+                        Min Value Greater than Max Value <br>
+                    </small>
+
+                    <small *ngIf="this.tableFormatForm.get('decDegStart').errors != null || this.tableFormatForm.get('decDegEnd').errors != null" 
+                    class="inputAlert">
+                        Invalid Min or Max Value <br>
+                    </small>
+                </div>
+            </fieldset>
+        </div>
+
+        <!--IMAG Input Range and Error Messaging-->
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    <div class="tooltip">IMAG
+                        <span class="tooltiptextrangefilters">QSO i-band apparent magnitude</span>
+                    </div>
+                </legend>
+                <!--Minimum IMAG Value-->
+                <label for="imagStart">Min</label>
+                <input id="imagStart" type="text" formControlName="imagStart" [ngClass]="{invalid:inputAlert('imagStart','imagEnd','min')}"
+                (input)="inputAlert('imagStart','imagEnd','min')" placeholder="0" class="formLessThanInput">
+                
+                <!--Maximum Dec IMAG Value-->
+                <label for="imagEnd">Max</label>
+                <input id="imagEnd" type="text" formControlName="imagEnd" [ngClass]="{invalid:inputAlert('imagStart','imagEnd','max')}"
+                (input)="inputAlert('imagStart','imagEnd','max')" placeholder="22" class="formGreaterThanInput">
+
+                <!--Error Messages for IMAG Values-->
+                <div  class="error-alert-range">
+                    <small *ngIf="rangeValidationError.get('imagStart') || rangeValidationError.get('imagEnd')" class="inputAlert">
+                        Min Value Greater than Max Value <br>
+                    </small>
+
+                    <small *ngIf="this.tableFormatForm.get('imagStart').errors != null || this.tableFormatForm.get('imagEnd').errors != null" 
+                    class="inputAlert">
+                        Invalid Min or Max Value <br>
+                    </small>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <!--Filter form Submit Button-->
+    <div class="filter-form-buttons">
+        <button class="btn btn-primary" type="submit" [ngClass]="{disabled:disableButton || checkForRangeErrors()}" 
+        [disabled]="disableButton || checkForRangeErrors()">Apply Filters</button>
+
+        <button class="reset-filter-button" type="button" [ngClass]="{disabled:resetTableButton}" 
+        [disabled]="resetTableButton" (click)="onReset()">Reset Filters</button>
+    </div>
+</form>
+
+<!--Quasar Table-->
+<div class="q-table">
+    <table>
+        <tr>
+            <th></th>
+            <th [ngClass]="{filterApplied:tableFilters.get('plateNum')}">
+                <div class="tooltip">plate number
+                    <span class="tooltiptext">SDSS Spectroscopic Plate Number</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('fiberNum')}">
+                <div class="tooltip">fiber number
+                    <span class="tooltiptext">SDSS Spectroscopic Fiber Number</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">mjd
+                    <span class="tooltiptext">Modified Julian Date</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('qRedshift')}">
+                <div class="tooltip">z_qso
+                    <span class="tooltiptext">QSO redshift (Hewett & Wild 2010)</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('aRedshift')}">
+                <div class="tooltip">z_abs
+                    <span class="tooltiptext">Absorption system redshift</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('mg2Score')}">
+                <div class="tooltip">mgii_class_score
+                    <span class="tooltiptext">Classification score for Mg II detected systems</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('classScore')}">
+                <div class="tooltip">civ_class_score
+                    <span class="tooltiptext">Classification score for C IV detected systems</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('otherScore')}">
+                <div class="tooltip">other_class_score
+                    <span class="tooltiptext">Classification score for Fe II-detected systems</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('raDeg')}">
+                <div class="tooltip">ra_deg
+                    <span class="tooltiptext">RA (Degrees)</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('decDeg')}">
+                <div class="tooltip">dec_deg
+                    <span class="tooltiptext">Dec (Degrees)</span>
+                </div>
+            </th>
+            <th [ngClass]="{filterApplied:tableFilters.get('imag')}">
+                <div class="tooltip">imag
+                    <span class="tooltiptext">QSO i-band apparent magnitude</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">bal_flag
+                    <span class="tooltiptext">Broad Absorption Line (BAL) QSO flag</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">bal_flag2
+                    <span class="tooltiptext">Alternate BALQSO flag</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">20cm_flux
+                    <span class="tooltiptext">FIRST 20cm Flux</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">20cm_snr
+                    <span class="tooltiptext">FIRST 20cm SNR</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">target_first
+                    <span class="tooltiptext">FIRST target flag 
+                        1 = targeted
+                        0 = not targeted</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">sep_first
+                    <span class="tooltiptext">FIRST Target Separation ('')</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">iabmag
+                    <span class="tooltiptext">QSO i-band absolute magnitude</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">spec_avesnr
+                    <span class="tooltiptext">Mean SNR of Full Spectrum</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">spec_medsnr
+                    <span class="tooltiptext">Median SNR of Full Spectrum</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">spec_avesnr_red
+                    <span class="tooltiptext">Mean SNR > 7200 ̊A</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">spec_medsnr_red
+                    <span class="tooltiptext">Median SNR > 7200 ̊A</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">num_5sigma_unided_inlya
+                    <span class="tooltiptext">Number of absorption lines detected
+                        at > 5σ within the Ly-α forest</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">num_5sigma_unided_notinlya
+                    <span class="tooltiptext">Number of absorption lines detected
+                        at > 5σ outside the Ly-α forest</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">grade
+                    <span class="tooltiptext">Letter quality grade</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">type
+                    <span class="tooltiptext">Code describing the type(s) of detection: 
+                        M=MgII,
+                        C=CIV,
+                        F=FeII,
+                        N=None</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">sys_num
+                    <span class="tooltiptext">Running count of systems detected in
+                        the spectrum, in order of detection</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">beta
+                    <span class="tooltiptext">v/c of absorption system in the QSO rest frame</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">dla_zabs_nd2013
+                    <span class="tooltiptext">Redshift of DLA from Noterdaeme et al. 2012</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">dla_flag_nd2013
+                    <span class="tooltiptext">Flag indicating the presence of a DLA at z abs,
+                        as determined by Noterdaeme et al. (2012b)</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">dla_lognhi_nd2013
+                    <span class="tooltiptext">N[HI] of DLA from Noterdaeme et al. 2012</span>
+                </div>
+            </th>
+            <th>
+                <div class="tooltip">dla_lognhi_err_nd2013
+                    <span class="tooltiptext">N[HI] error of DLA from Noterdaeme et al. 2012</span>
+                </div>
+            </th>
+        </tr>
+        <tr *ngFor="let entry of generalCatalogFiltered.slice(entriesToDisplayStart,entriesToDisplayEnd)">
+            <td>
+                <button (click)="openArchiveOverlay(entry.plate,entry.fiber,entry.mjd)">Absorption Data</button>
+                <button (click)="openURL(entry.plate,entry.fiber,entry.mjd)">Explore SDSS</button>
+            </td>
+            <td>{{entry.plate}}</td>
+            <td>{{entry.fiber}}</td>
+            <td>{{entry.mjd}}</td>
+            <td>{{entry.z_qso}}</td>
+            <td>{{entry.z_abs}}</td>
+            <td>{{entry.mgii_class_score}}</td>
+            <td>{{entry.civ_class_score}}</td>
+            <td>{{entry.other_class_score}}</td>
+            <td>{{entry.ra_deg}}</td>
+            <td>{{entry.dec_deg}}</td>
+            <td>{{entry.imag}}</td>
+            <td>{{entry.bal_flag}}</td>
+            <td>{{entry.bal_flag2}}</td>
+            <td>{{entry._20cm_flux}}</td>
+            <td>{{entry._20cm_snr}}</td>
+            <td>{{entry.target_first}}</td>
+            <td>{{entry.sep_first}}</td>
+            <td>{{entry.iabmag}}</td>
+            <td>{{entry.spec_avesnr}}</td>
+            <td>{{entry.spec_medsnr}}</td>
+            <td>{{entry.spec_avesnr_red}}</td>
+            <td>{{entry.spec_medsnr_red}}</td>
+            <td>{{entry.num_5sigma_unided_inlya}}</td>
+            <td>{{entry.num_5sigma_unided_notinlya}}</td>
+            <td>{{entry.grade}}</td>
+            <td>{{entry.type}}</td>
+            <td>{{entry.sys_num}}</td>
+            <td>{{entry.beta}}</td>
+            <td>{{entry.dla_zabs_nd2013}}</td>
+            <td>{{entry.dla_flag_nd2013}}</td>
+            <td>{{entry.dla_lognhi_nd2013}}</td>
+            <td>{{entry.dla_lognhi_err_nd2013}}</td>
+        </tr>
+    </table>
+
+    <!--Message to display when loading the catalog-->
+    <div class="table-message" *ngIf="loadingCatalog && !failedToLoadData">
+        <h2>Loading Catalog...</h2>
+    </div>
+
+    <!--Message to display if no results were found with current filters-->
+    <div class="table-message" *ngIf="!loadingCatalog && generalCatalogFiltered.length == 0">
+        <h2>No Results found with current Filters</h2>
+    </div>
+
+    <!--Message to display if the application cannot get the catalog data from the server-->
+    <div class="table-message" *ngIf="loadingCatalog && failedToLoadData">
+        <h2>Error! Unable to Retrieve Data at this time, Please try again later</h2>
+    </div>
+
+</div>
+
+
+
+<!--Navigation for results-->
+<div class="table-info" *ngIf="!loadingCatalog">
+    <button class="table-buttons-download" (click)="downloadTableCSV(generalCatalogFiltered)">Download Table (.csv file)</button>
+
+    <!--Previous button-->
+    <button class="table-buttons-prev" [ngClass]="{disabled:prevDisable}" [disabled]="prevDisable" (click)="prevTable()">Previous</button>
+
+    <!--If results excede 1000-->
+    <p class="table-num-items" *ngIf="!lessThanOneThousandResults && (generalCatalogFiltered.length - (entriesToDisplayStart+1)) >= 1000">
+        Showing {{entriesToDisplayStart + 1}} - {{entriesToDisplayEnd + 1}} / {{generalCatalogFiltered.length}} Results
+    </p>
+
+    <!--If results excede 1000-->
+    <p class="table-num-items" *ngIf="!lessThanOneThousandResults && 1000 > (generalCatalogFiltered.length - (entriesToDisplayStart+1))">
+        Showing {{entriesToDisplayStart + 1}} - {{generalCatalogFiltered.length}} / {{generalCatalogFiltered.length}} Results
+    </p>
+
+    <!--If results do not excede 1000-->
+    <p class="table-num-items" *ngIf="lessThanOneThousandResults">
+        Showing {{generalCatalogFiltered.length}} Results
+    </p>
+
+    <!--Next button-->
+    <button class="table-buttons-next" [ngClass]="{disabled:nextDisable}" [disabled]="nextDisable" (click)="nextTable()">Next</button>
+</div>

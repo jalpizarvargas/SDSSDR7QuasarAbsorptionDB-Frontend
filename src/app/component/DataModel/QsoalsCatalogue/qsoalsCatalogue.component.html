@@ -1,0 +1,268 @@
+<h1>Data Model for the QSOALS FITS Catalogue</h1>
+
+<br>
+
+<table>
+    <tr>
+        <th>FITS Header</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>plate</td>
+        <td>SDSS Spectroscopic Plate Number</td>
+    </tr>
+    <tr>
+        <td>fiber</td>
+        <td>SDSS Spectroscopic Fiber Number</td>
+    </tr>
+    <tr>
+        <td>mjd</td>
+        <td>Modified Julian Date</td>
+    </tr>
+    <tr>
+        <td>z_qso</td>
+        <td>QSO redshift (Hewett & Wild 2010)</td>
+    </tr>
+    <tr>
+        <td>imag</td>
+        <td>QSO i-band apparent magnitude</td>
+    </tr>
+    <tr>
+        <td>BAL_flag</td>
+        <td>Broad Absorption Line (BAL) QSO flag:<br><br>
+            0 = not identified as a BALQSO<br>
+            1 = BAL identified (Gibson et al. 2009)<br>
+            10 = BAL identified (D. VandenBerk, private comm.)<br>
+            20 = Ambiguous BAL candidate (D. VandenBerk)</td>
+    </tr>
+    <tr>
+        <td>BAL_flag2</td>
+        <td>Alternate BALQSO flag:<br><br>
+            0 = not identified as a BALQSO<br>
+            1 = BAL identified by Gibson et al. (2009)<br>
+            2 = BAL identified by Shen et al. (2011) only<br>
+            3 = BAL identified by S. Wesolowski only<br>
+            4 = BAL identified by both Shen and Wesolowski</td>
+    </tr>
+    <tr>
+        <td>target_FIRST</td>
+        <td>FIRST target flag:<br><br>
+            1 = targeted<br>
+            0 = not targeted</td>
+    </tr>
+    <tr>
+        <td>20cm_flux</td>
+        <td>FIRST 20cm Flux</td>
+    </tr>
+    <tr>
+        <td>20cm_snr</td>
+        <td>FIRST 20cm SNR</td>
+    </tr>
+    <tr>
+        <td>sep_FIRST</td>
+        <td>FIRST Target Separation (")</td>
+    </tr>
+    <tr>
+        <td>iab_Mag</td>
+        <td>QSO i-band absolute magnitude</td>
+    </tr>
+    <tr>
+        <td>z_fgal</td>
+        <td>Redshift of foreground galaxy
+            detected in emission.</td>
+    </tr>
+    <tr>
+        <td>spec_aveSNR</td>
+        <td>Mean SNR of Full Spectrum</td>
+    </tr>
+    <tr>
+        <td>spec_medSNR</td>
+        <td>Median SNR of Full Spectrum</td>
+    </tr>
+    <tr>
+        <td>spec_aveSNR_red</td>
+        <td>Mean SNR > 7200 &Aring;</td>
+    </tr>
+    <tr>
+        <td>spec_medSNR_red</td>
+        <td>Median SNR > 7200 &Aring;</td>
+    </tr>
+    <tr>
+        <td>ra_hex</td>
+        <td>RA (Hexigesimal)</td>
+    </tr>
+    <tr>
+        <td>dec_hex</td>
+        <td>Dec (Hexigesimal)</td>
+    </tr>
+    <tr>
+        <td>ra_deg</td>
+        <td>RA (Degrees)</td>
+    </tr>
+    <tr>
+        <td>dec_deg</td>
+        <td>Dec (Degrees)</td>
+    </tr>
+    <tr>
+        <td>run_date</td>
+        <td>Absorption Pipeline Run Date</td>
+    </tr>
+    <tr>
+        <td>w_limits</td>
+        <td>Absorption equivalent width detection limits:<br><br>
+
+            Median two pixel 1&sigma; error in each of the
+            wavelength regions listed below in the QSO
+            rest-frame.<br> Entries of -1.0 indicate that the
+            wavelength region is not within the bounds
+            of the spectrum.<br>
+            [1215.7 - 1240.8 &Aring;]<br>
+            [1240.8 - 1399.8 &Aring;]<br>
+            [1399.8 - 1549.5 &Aring;]<br>
+            [1549.5 - 1908.7 &Aring;]<br>
+            [1908.7 - 2799.1 &Aring;]<br>
+            [2799.1 - 3969.0 &Aring;]<br>
+            [3969.0 - 8200.0 &Aring;]<br>
+            [8200.0 - 9200.0 &Aring;]</td>
+    </tr>
+    <tr>
+        <td>num_5sigma_unided_inLyA</td>
+        <td>Number of absorption lines detected at > 5&sigma;
+            within the Ly-&alpha; forest</td>
+    </tr>
+    <tr>
+        <td>num_5sigma_unided_notinLyA</td>
+        <td>Number of absorption lines detected at > 5&sigma;
+            outside the Ly-&alpha; forest</td>
+    </tr>
+    <tr>
+        <td>z_abs</td>
+        <td>Absorption system redshift</td>
+    </tr>
+    <tr>
+        <td>grade</td>
+        <td>Letter quality grade:<br><br>
+
+            A = 4 lines, W/&sigma;<sub>W</sub> &ges; 4<br><br>
+
+            B = 3 lines, W/&sigma;<sub>W</sub> &ges; 4<br><br>
+
+            C = 2 lines, W/&sigma;<sub>W</sub> &ges; 4<br>
+            (C IV or Mg II doublet)<br><br>
+
+            C* = 2 lines, W/&sigma;<sub>W</sub> &ges; 4<br>
+            (1 line of CIV or Mg II doublet and 1 other ion)<br><br>
+
+            C** = 2 lines, W/&sigma;<sub>W</sub> &ges; 4<br>
+            (neither line identified as C IV or Mg II)<br><br>
+
+            D = 1 line, W/&sigma;<sub>W</sub> &ges; 4; and 1 line, W/&sigma;<sub>W</sub> &ges; 3 and W/&sigma;<sub>W</sub> &lt; 4<br><br>
+            
+            D* = 2 lines, W/&sigma;<sub>W</sub> &ges; 3 and W/&sigma;<sub>W</sub> &lt; 4<br><br>
+            
+            E = 1 line, W/&sigma;<sub>W</sub> &ges; 4<br><br>
+
+            E* = 1 line, W/&sigma;<sub>W</sub> &ges; 3 and W/&sigma;<sub>W</sub> &lt; 4</td>
+    </tr>
+    <tr>
+        <td>type</td>
+        <td>Code describing the method(s) of detection:<br><br>
+            M = system detected by search for Mg II<br>
+            C = system detected by search for C IV<br>
+            F = system detected by search for Fe II</td>
+    </tr>
+    <tr>
+        <td>sys_num</td>
+        <td>Running count of systems detected in
+            the spectrum, in order of detection</td>
+    </tr>
+    <tr>
+        <td>beta</td>
+        <td>v/c of absorption system in the QSO rest frame</td>
+    </tr>
+    <tr>
+        <td>DLA_flag_ND2012</td>
+        <td>Flag indicating the presence of a DLA at <b>z_abs</b>,
+            as determined by Noterdaeme et al. (2012b)</td>
+    </tr>
+    <tr>
+        <td>DLA_logNHI_ND2012</td>
+        <td>N[HI] of DLA from Noterdaeme et al. 2012</td>
+    </tr>
+    <tr>
+        <td>DLA_logNHI_err_ND2012</td>
+        <td>N[HI] error of DLA from Noterdaeme et al. 2012</td>
+    </tr>
+    <tr>
+        <td>DLA_zabs_ND2012</td>
+        <td>Redshift of DLA from Noterdaeme et al. 2012</td>
+    </tr>
+    <tr>
+        <td>MgII_class_score</td>
+        <td>Classification score for Mg II detected systems</td>
+    </tr>
+    <tr>
+        <td>CIV_class_score</td>
+        <td>Classification score for C IV detected systems</td>
+    </tr>
+    <tr>
+        <td>other_class_score</td>
+        <td>Classification score for Fe II-detected systems</td>
+    </tr>
+    <tr>
+        <td>lambda_vac</td>
+        <td>Array of laboratory wavelengths (&Aring;) for documented
+            absorption lines, truncated to one decimal:<br><br>
+            [1025.7, 1215.7, 1238.8, 1260.4, 1302.2, 1304.4, 1334.5, 1393.8,
+            1402.8, 1526.7, 1548.2, 1550.8,<br> 1608.5, 1656.9, 1670.8, 1854.7,
+            1862.8, 2026.1, 2056.3, 2260.8, 2374.5, 2382.8, 2586.7, 2594.5,<br>
+            2600.2, 2796.4, 2803.5, 2853.0, 3242.9, 3934.8, 3969.6, 5891.5]</td>
+    </tr>
+    <tr>
+        <td>lambda_obs</td>
+        <td>Array of observed wavelengths (&Aring;) for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+    <tr>
+        <td>EW_obs</td>
+        <td>Array of observer-frame equivalent widths (&Aring;) for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+    <tr>
+        <td>EW_err_obs</td>
+        <td>Array of 1&sigma; errors (&Aring;) on the equivalent widths
+            for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+    <tr>
+        <td>lya_flag</td>
+        <td>Array of flags indicating detections in the Ly&alpha; forest
+            for each of the ions <br> listed in the <b>lambda_vac</b> array<br><br>
+            0 = longward of Ly&alpha; (&lambda;<sub>obs</sub> &gt; 1215.7 &times; z<sub>qso</sub>)<br>
+            1 = shortward of Ly&alpha; (&lambda;<sub>obs</sub> &les; 1215.7 &times; z<sub>qso</sub>)</td>
+    </tr>
+    <tr>
+        <td>deltaz_sys</td>
+        <td>Array of redshift di↵erences between each line and the average redshift of the system (z<sub>line</sub> &minus; z<sub>system</sub>)<br>
+            for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+    <tr>
+        <td>deltav_sys</td>
+        <td>Array of velocity differences (km s<sup>&minus;1</sup>) between each line and the average redshift of the system<br>
+            for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+    <tr>
+        <td>fwhm</td>
+        <td>Array of FWHM measurements (pixels)
+            for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+    <tr>
+        <td>gradeflag</td>
+        <td>Array of flags denoting lines counting toward the <b>grade</b>
+            for each of the ions <br> listed in the <b>lambda_vac</b> array<br><br>
+            0 = Line is not used for grading<br>
+            1 = Line is used for grading</td>
+    </tr>
+    <tr>
+        <td>blendflag</td>
+        <td>Flag denoting blended lines
+            for each of the ions listed in the <b>lambda_vac</b> array</td>
+    </tr>
+</table>

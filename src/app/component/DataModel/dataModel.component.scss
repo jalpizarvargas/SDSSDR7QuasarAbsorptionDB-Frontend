@@ -1,0 +1,60 @@
+.router-outlet + *{
+    width: 900px;
+}
+
+.router{
+    position: absolute;
+    vertical-align: top;
+    margin-left: 500px;
+}
+
+.modelsPage{
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+.navModels{
+    position: absolute;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-left: 100px;
+    padding-right: 400px;
+    width: 300px;
+
+    button{
+        width: 200px;
+        height: 100px;
+        text-transform: capitalize;
+        font-style: oblique;
+        margin: 5px;
+        background-color: #D9D9D9;
+        border-radius: 15px;
+        border-width: 3px;
+        cursor: pointer;
+    }
+
+    h2{
+        text-align: left;
+    }
+
+    .pressed{
+        background-color: darkgrey;
+    }
+}
+
+@media print{
+
+    .navModels{
+        display: none;
+    }
+
+    .startBreak{
+        display: none;
+    }
+    
+    .router{
+        margin-left: 0;
+    }
+
+}

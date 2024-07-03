@@ -1,0 +1,35 @@
+export interface EwObs {
+    id:number;
+    eObs_1025:number;
+    eObs_1215:number;
+    eObs_1238:number;
+    eObs_1260:number;
+    eObs_1302:number;
+    eObs_1304:number;
+    eObs_1334:number;
+    eObs_1393:number;
+    eObs_1402:number;
+    eObs_1526:number;
+    eObs_1548:number;
+    eObs_1550:number;
+    eObs_1608:number;
+    eObs_1656:number;
+    eObs_1670:number;
+    eObs_1854:number;
+    eObs_1862:number;
+    eObs_2026:number;
+    eObs_2056:number;
+    eObs_2260:number;
+    eObs_2374:number;
+    eObs_2382:number;
+    eObs_2586:number;
+    eObs_2594:number;
+    eObs_2600:number;
+    eObs_2796:number;
+    eObs_2803:number;
+    eObs_2853:number;
+    eObs_3242:number;
+    eObs_3934:number;
+    eObs_3969:number;
+    eObs_5891:number;
+}

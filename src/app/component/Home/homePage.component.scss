@@ -1,0 +1,257 @@
+h1{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-display: initial;
+}
+
+h2{
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif;
+    font-display: initial;
+}
+
+h5{
+    font-size: 18px;
+    font-display: initial;
+}
+
+
+button{
+    background-color: #D9D9D9;
+    height: 120px;
+    width: 320px;
+    border-radius: 15px;
+    border-width: 3px;
+    cursor: pointer;
+}
+
+hr{
+    margin-top: 50px;
+}
+
+
+
+#GraphSection{
+
+    background-color: black;
+
+    img{
+        padding-left: 28%;
+        padding-bottom: 30px;
+        padding-top: 30px;
+        margin-left: 50px;
+        width: 40%;
+        height: 20%;
+    }
+}
+
+#SummarySection{
+
+    padding-left: 50px;
+    height: 100%;
+    display: inline-table;
+
+    #SummaryText{
+        width: 100%;
+    }
+
+    #AbsorptionLineAtlas{
+        position: absolute;
+        padding-left: 50%;
+        margin-bottom: 50px;
+        width: 40%;
+        margin-top: -430px;
+      
+    } 
+
+    blockquote{
+        width: 50%;
+        margin-left: 0;
+    }
+
+}
+
+#ButtonSection{
+    padding-left: 15px;
+
+    h5{
+       text-align: center;
+    }
+
+    p{
+        margin-top: -20px;
+    }
+}
+
+
+#CatalogSection{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#AcknowlegmentSection{
+
+    background-color: black;
+    height: auto;
+    margin-top: 150px;
+
+    #Acknowlegment{
+        padding-top: 20px;
+        text-align: center;
+        padding-bottom: 30px;
+        color: white;
+    }
+
+
+    #A1{
+        margin-left: 50px;
+        padding-left: 20px;
+        background-color: #D9D9D9;
+        width: 420px;
+        border-radius: 5px;
+        border-width: 10px;
+        border-color: white;
+        h5{
+            padding-top: 20px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        ul{
+            padding-bottom: 20px;
+        }
+    }
+
+    #A2{
+        margin-top: -226px;
+        margin-left: 540px;
+        margin-right: 20px;
+        padding-bottom: 50px;
+        color: white;
+
+        h5{
+            padding-left: 40px;
+        }
+    }
+}
+
+#References{
+    margin-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+
+}
+
+@media print{
+    h1{
+        top: 0;
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 0;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #CatalogSection{
+        display: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #GraphSection{
+        display: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    hr{
+        display: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    #SummarySection{
+        top: 2.375em;
+        margin-top: 4.375em;
+        padding-top: 0;
+        position: absolute;
+        display: flex;
+
+        #SummaryText{
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            blockquote{
+                width: 50em;
+            }
+        }
+
+        #AbsorptionLineAtlas{
+            top: 20.5em;
+            margin-top: 20em;
+            position: absolute;
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50em;
+            height: 25em;
+        }
+    }
+
+    #AcknowlegmentSection{
+        top: 70.75em;
+        margin-top: 3.75em;
+        padding: 0;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+
+        #Acknowlegment{
+            color: black;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #A1{
+
+            h5{
+                padding: 0;
+            }
+
+            margin-top: 0;
+            padding: 0;
+            padding-left: 2.5em;
+            margin-right: auto;
+            margin-left: auto;
+            position: absolute;
+        }
+
+        #A2{
+            padding: 0;
+            margin-top: 18.625em;
+            color: black;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    #References{
+        top: 71em;
+        margin-top: 3.75em;
+        padding-left: 2.5em;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

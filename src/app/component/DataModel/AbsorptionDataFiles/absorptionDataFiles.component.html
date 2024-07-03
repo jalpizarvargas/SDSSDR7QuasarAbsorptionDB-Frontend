@@ -1,0 +1,147 @@
+<h1>Data Models for the Absorption Data Files</h1>
+<h3>(Columns in these files are read from left to right)</h3>
+
+<br>
+
+<h2>spec_plate_fiber_mjd_.dat Files</h2>
+<p>Summary: Calibrated SDSS Quasar Spectrum.</p>
+<br>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>wavelength [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>flux [10^-17 erg s^-1 cm^-2 A^-1]</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>flux uncertainty</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>model continuum flux  [10^-17 erg s^-1 cm^-2 A^-1]</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>pixel width * (flux uncertainty) / flux</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>nspec_plate_fiber_mjd_.dat Files</h2>
+<p>Summary: Normalized Quasar Spectrum</p>
+
+<br>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>wavelength [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>normalized flux</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>normalized flux uncertainty</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>model continuum flux  [10^-17 erg s^-1 cm^-2 A^-1]</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>ewspec_plate_fiber_mjd_.dat Files</h2>
+<p>Summary: A measurement of the absorption equivalent width at each pixel in the spectrum.</p>
+
+<br>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>wavelength [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>equivalent width [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>equivalent width uncertainty [Angstroms]</td>
+    </tr>
+</table>
+
+<br>
+
+<h2>lines_plate_fiber_mjd_.dat Files</h2>
+<p>Summary: A listing of all detected lines with a signal-to-noise ratio >=3.</p>
+
+<br>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>wavelength [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>equivalent width / equivalent width uncertainty </td>
+    </tr>
+</table>
+
+<br>
+
+<h2>zidinput_plate_fiber_mjd_.dat Files</h2>
+<p>Summary: A listing of measurements for all detected lines with a signal-to-noise ratio >=3.</p>
+
+<br>
+
+<table>
+    <tr>
+        <td>Column</td>
+        <td>Data</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>wavelength [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>pixel width [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>equivalent width [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>equivalent width uncertainty [Angstroms]</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>full width half maximum [Angstroms]</td>
+    </tr>
+</table>

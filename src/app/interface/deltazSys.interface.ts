@@ -1,0 +1,35 @@
+export interface DeltazSys {
+    id:number;
+    deltazSys_1025:number;
+    deltazSys_1215:number;
+    deltazSys_1238:number;
+    deltazSys_1260:number;
+    deltazSys_1302:number;
+    deltazSys_1304:number;
+    deltazSys_1334:number;
+    deltazSys_1393:number;
+    deltazSys_1402:number;
+    deltazSys_1526:number;
+    deltazSys_1548:number;
+    deltazSys_1550:number;
+    deltazSys_1608:number;
+    deltazSys_1656:number;
+    deltazSys_1670:number;
+    deltazSys_1854:number;
+    deltazSys_1862:number;
+    deltazSys_2026:number;
+    deltazSys_2056:number;
+    deltazSys_2260:number;
+    deltazSys_2374:number;
+    deltazSys_2382:number;
+    deltazSys_2586:number;
+    deltazSys_2594:number;
+    deltazSys_2600:number;
+    deltazSys_2796:number;
+    deltazSys_2803:number;
+    deltazSys_2853:number;
+    deltazSys_3242:number;
+    deltazSys_3934:number;
+    deltazSys_3969:number;
+    deltazSys_5891:number;
+}

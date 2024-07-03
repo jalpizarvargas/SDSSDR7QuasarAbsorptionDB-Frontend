@@ -1,0 +1,24 @@
+<div class="modelsPage">
+
+    <div class="navModels">
+        <h2>Select Document:</h2>
+        <br>
+        <button (click)="changeDocument('qsoals-fits-catalogue')" [ngClass]="{'pressed':modelsToShowMap.get('qsoals-fits-catalogue')}" 
+        routerLink="qsoals-fits-catalogue">Absorption Summary Catalog Model</button>
+        <br>
+        <button (click)="changeDocument('absorption-lines-graph')" [ngClass]="{'pressed':modelsToShowMap.get('absorption-lines-graph')}" 
+        routerLink="absorption-lines-graph">How to Read Extracted Absorption Spectra</button>
+        <br>
+        <button (click)="changeDocument('absorption-data-files')" [ngClass]="{'pressed':modelsToShowMap.get('absorption-data-files')}" 
+        routerLink="absorption-data-files">Absorption Data Models</button>
+        <br>
+        <button (click)="changeDocument('absorption-catalogue-table-files')" [ngClass]="{'pressed':modelsToShowMap.get('absorption-catalogue-table-files')}" 
+        routerLink="absorption-catalogue-table-files">Data model of catalog files for individual quasars</button>
+    </div>
+
+    <div class="router">
+        <router-outlet class="router-outlet"></router-outlet>
+    </div>
+    <br>
+
+</div>

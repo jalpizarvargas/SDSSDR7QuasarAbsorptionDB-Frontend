@@ -1,0 +1,37 @@
+ul{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 2px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+    border-right: 3px solid #bbb;
+}
+
+li a{
+    display: block;
+    color: white;
+    width: 120px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.selected) {
+    background-color: #111;
+}
+
+.selected{
+    background-color: #7FBBDD;
+}
+
+.homeOption{
+    margin-left: 2%;
+    border-left: 3px solid #bbb;
+}
