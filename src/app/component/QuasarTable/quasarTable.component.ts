@@ -377,8 +377,10 @@ export class QuasarTableComponent implements OnInit{
         //Reference back to unfiltered catalog
         this.generalCatalogFiltered = this.generalCatalogComplete;
 
+        //Default reset button off unless filter is applied
         this.resetTableButton = true;
 
+        //Default next table button on unless filtered list is under 1000
         this.nextDisable = false;
 
         //Apply Plate Number Filter
