@@ -63,9 +63,9 @@ export class ArchiveOverlay implements OnInit {
                     if(filename.includes(".png") && !filename.includes('thumb')){
 
                         if(filename.startsWith('n')){
-                            this.fileData[0] = URL.createObjectURL(fileData);
-                        }else{
                             this.fileData[1] = URL.createObjectURL(fileData);
+                        }else{
+                            this.fileData[0] = URL.createObjectURL(fileData);
                         }
 
                     }});
