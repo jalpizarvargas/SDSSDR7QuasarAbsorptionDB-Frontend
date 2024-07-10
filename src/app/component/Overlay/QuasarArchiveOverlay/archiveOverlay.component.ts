@@ -24,10 +24,10 @@ export class ArchiveOverlay implements OnInit {
     archiveEntry:Blob;
 
     //Array that stores the images that are going to be displayed from the archive entry
-    fileData:string[] = [];
+    fileData:string[] = ['',''];
 
     //Array that stores the designation for data recorded in the graph
-    normalizedGraph:string[] = [];
+    graphs:string[] = [];
 
     //Variable that disables/enables the previous button
     prevDisable:boolean = true;
@@ -61,16 +61,17 @@ export class ArchiveOverlay implements OnInit {
                     zip.files[filename].async('blob').then((fileData) => {
                     //Reads the names of the files, if it contains a ".png" and is not a "thumb image" its added to the array
                     if(filename.includes(".png") && !filename.includes('thumb')){
-                        this.fileData.push(URL.createObjectURL(fileData));
 
                         if(filename.startsWith('n')){
-                            this.normalizedGraph.push('Normalized');
+                            this.fileData[0] = URL.createObjectURL(fileData);
                         }else{
-                            this.normalizedGraph.push('Non-normalized');
+                            this.fileData[1] = URL.createObjectURL(fileData);
                         }
 
                     }});
                 });
+                this.graphs.push("Non-Normalized")
+                this.graphs.push("Normalized")
                 this.imagesLoaded = true;
             });
         }, error: e => {
@@ -79,8 +80,6 @@ export class ArchiveOverlay implements OnInit {
                 this.failedToLoad = true;
             }
         });  
-
-        console.log(this.normalizedGraph);
     }
 
     /**
